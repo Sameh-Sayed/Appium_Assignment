@@ -1,8 +1,7 @@
-package appiumTask;
-import appiumTask.Base;
+package appiumTask.steps;
+import appiumTask.pages.Base;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
-import org.testng.annotations.Test;
 
 
 public class TeacherStepDfinition extends Base {

@@ -1,6 +1,6 @@
-package appiumTask;
+package appiumTask.steps;
 
-import appiumTask.Base;
+import appiumTask.pages.Base;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
