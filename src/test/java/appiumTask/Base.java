@@ -26,21 +26,26 @@ public class Base {
     @BeforeClass
     public void runAppium() throws MalformedURLException {
 
-    // create capabilities
-        UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("NewDevice");
-        options.setApp(System.getProperty("user.dir")+"\\Android.SauceLabs.Mobile.Sample.app.2.7.1.apk");
 
-        AppiumDriverLocalService service = new AppiumServiceBuilder()
+
+         service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\VEGA Laptop\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
                 .withIPAddress("127.0.0.1")
-                .usingPort(4723)
+                .usingPort(4723).withTimeout(Duration.ofSeconds(300))
                 .build();
         service.start();
+
+    // create capabilities
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setDeviceName("MyDevice");
+        options.setApp(System.getProperty("user.dir")+"\\src\\resources\\APK\\tk Teacher 202401231358 testing.apk");
+
+
 
 
         //create object for android driver
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 
 
 
@@ -54,9 +59,6 @@ public class Base {
 
     public void performLogin(String username, String password) {
             // Implement the login steps using Appium, for example:
-            driver.findElement(AppiumBy.xpath("//android.widget.EditText[@content-desc=\"test-Username\"]")).sendKeys(password);
-            driver.findElement(AppiumBy.xpath("//android.widget.EditText[@content-desc=\"test-Password\"]")).sendKeys(username);
-            driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"test-LOGIN\"]")).click();
 
         }
 
